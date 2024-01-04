@@ -1,0 +1,9 @@
+mysql:
+  enabled: true
+  host: localhost
+  port: 3306
+  database: bansysreworked
+  username: root
+  password: root
+
+prefix: '&c[&6Ban System&c]&r '

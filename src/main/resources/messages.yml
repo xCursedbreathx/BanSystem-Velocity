@@ -1,0 +1,54 @@
+# This file contains all the messages that are sent to the player when they execute a command.
+# You can change the messages to your liking, but please do not change the placeholders.
+# Placeholders are used to display information about the player, such as their name, ID, etc.
+# Here is a list of all the placeholders that can be used:
+# <prefix> - Prefix - Can be used in every message
+# <player> - Player's name - can be Used in Screens
+# <creator> - Creator of the ban - can be used in Screens
+# <reason> - Reason for the ban - can be used in Screens
+# <remtime> - Remaining time of the ban - can be used in Screens
+
+noidspecified: "<prefix><red>Please remember to specify an ID when using the command. You can view the IDs by Clicking <yellow><b><click:run_command:'/ban'>here</click></b></yellow><red> or using the <yellow><b>/ban</b><red> command. Thank you!"
+nopermissionmessage: "<prefix><red>Apologies, you do not have the necessary permissions to perform this action. Please contact an administrator for assistance. Thank you!"
+onlyplayermessage: "<prefix><red>This command can only be executed by players, not by console or server commands."
+onlyconsolemessage: "<prefix><red>This command can only be executed via console or server commands, not by players."
+playernotfound: "<prefix><red>Sorry, the specified player could not be found. Please double-check the name and try again. Thank you!"
+playerdoesnotexist: "<prefix><red>Sorry, the player does not appear to be in the database. Please ensure the correct username or ID is used."
+nodbconnection: "<prefix><red>Apologies, it seems there's currently no connection to the database from your end. Please try again later or contact support for further assistance. Thank you for your understanding and patience."
+playernotbanned: "<prefix><red>The specified player is not currently banned. They have full access to the server. If you have any concerns, please let us know. Thank you!"
+playernotmuted: "<prefix><red>The specified player is currently not muted and can freely communicate through chat. If you have any other concerns, feel free to reach out. Thank you!"
+noargumentfound: "<prefix><red>Please remember to specify an argument when using the command. You can view the arguments using the '/ban or /unban' command. Thank you!"
+playerhasbypasspermission: "<prefix><red>The specified player has the bypass permission and cannot be banned. If you have any concerns, please let us know. Thank you!"
+remainingtimepattern: "dd:HH:mm:ss"
+timepattern: "HH:mm:ss"
+datetimepattern: "dd.MM.yyyy HH:mm:ss"
+screens:
+  'network':
+    screen:
+      - "----------------------"
+      - " "
+      - "<red>You are banned from this Server!"
+      - "<red>Reason: <gold><reason>"
+      - "<red>Banned by: <gold><creator>"
+      - "<red>Remaining Time: <gold><remtime>"
+      - " "
+      - "----------------------"
+  'kick':
+    screen:
+      - "----------------------"
+      - " "
+      - "<red>You are kicked from this Server!"
+      - "<red>Reason: <gold><reason>"
+      - "<red>Kicked by: <gold><creator>"
+      - " "
+      - "----------------------"
+  'chat':
+    screen:
+      - "----------------------"
+      - " "
+      - "<red>You are Muted!"
+      - "<red>Reason: <gold><reason>"
+      - "<red>Banned by: <gold><creator>"
+      - "<red>Remaining Time: <gold><remtime>"
+      - " "
+      - "----------------------"
