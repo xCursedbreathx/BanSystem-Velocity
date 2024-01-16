@@ -32,6 +32,16 @@ public class ChatListener {
 
                     long until = resultSet.getLong("duration");
 
+                    if(until == 0) {
+
+                        Component mutedMessage = MiniMessage.miniMessage().deserialize(String.join("\n", BanSystem_Velocity.getDataManager().getScreen("chat")),
+                                Placeholder.parsed("reason", resultSet.getString("reason")),
+                                Placeholder.parsed("creator", BanSystem_Velocity.getPlayerManager().getName(UUID.fromString(resultSet.getString("creator")))),
+                                Placeholder.parsed("until", "PERMANENT"),
+                                Placeholder.parsed("remtime", "-1"));
+
+                    }
+
                     if(until > Instant.now().getEpochSecond()) {
 
                         Component mutedMessage = MiniMessage.miniMessage().deserialize(String.join("\n", BanSystem_Velocity.getDataManager().getScreen("chat")),

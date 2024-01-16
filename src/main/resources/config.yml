@@ -8,68 +8,129 @@ mysql:
 
 prefix: '&c[&6Ban System&c]&r '
 
+# Types: KICK, NETWORK, CHAT
+# Kick - Kicks the Player from the Network
+# Network - Bans the Player from the Network
+# Chat - Mutes the Player in the Chat ( Requires BanSysten-Velocity-Addon ) on Backend Servers
+
 banids:
   '1':
-    reason: Test1
-    onlyAdmin: false
+    reason: Unerlaubte Clientmodification/Hackclient
+    onlyAdmins: false
     lvl:
       '1':
-        type: CHAT
-        duration: 60 # 1 minutes
-      '2':
-        type: CHAT
-        duration: 120 # 2 minutes
-      '3':
-        type: CHAT
-        duration: 240 # 4 minutes
-      '4':
         type: NETWORK
-        duration: 600 # 10 minute
+        duration: 2700
+      '2':
+        type: NETWORK
+        duration: 0
   '2':
-    reason: Test2
-    onlyAdmin: false
+    reason: Reportmissbrauch
+    onlyAdmins: false
     lvl:
       '1':
         type: NETWORK
-        duration: 5 # 5 seconds
+        duration: 900
       '2':
-        type:
-        duration: 10 # 10 seconds
-      '3':
         type: NETWORK
-        duration: 300 # 30 seconds
-      '4':
-        type: NETWORK
-        duration: 600 # 1 minute
+        duration: 0
   '3':
-    reason: Test3
-    onlyAdmin: false
+    reason: Unangebrachter Skin/Name
+    onlyAdmins: false
     lvl:
       '1':
         type: NETWORK
-        duration: 5 # 5 seconds
+        duration: 2700
       '2':
-        type:
-        duration: 10 # 10 seconds
-      '3':
         type: NETWORK
-        duration: 30 # 30 seconds
-      '4':
+        duration: 0
+  '4':
+    reason: Crossteaming
+    onlyAdmins: false
+    lvl:
+      '1':
         type: NETWORK
-        duration: 60 # 1 minute
-  '10':
-    reason: Test10
-    onlyAdmin: false
+        duration: 2700
+      '2':
+        type: NETWORK
+        duration: 0
+  '5':
+    reason: Bugusing
+    onlyAdmins: false
+    lvl:
+      '1':
+        type: NETWORK
+        duration: 2700
+      '2':
+        type: NETWORK
+        duration: 0
+  '6':
+    reason: Chat Verhalten
+    onlyAdmins: false
     lvl:
       '1':
         type: CHAT
-        duration: 5 # 5 seconds
+        duration: 120
       '2':
-        type: NETWORK
-        duration: 10 # 10 seconds
+        type: CHAT
+        duration: 600
       '3':
-        type: NETWORK
-        duration: 30 # 30 seconds
+        type: CHAT
+        duration: 1200
       '4':
+        type: CHAT
+        duration: 2700
+      '5':
+        type: CHAT
+        duration: 0
+  '7':
+    reason: Werbung
+    onlyAdmins: false
+    lvl:
+      '1':
+        type: CHAT
+        duration: 600
+      '2':
+        type: CHAT
+        duration: 1200
+      '3':
+        type: CHAT
+        duration: 2700
+      '4':
+        type: CHAT
+        duration: 0
+  '8':
+    reason: Alt-Account
+    onlyAdmins: false
+    lvl:
+      '1':
         type: NETWORK
-        duration: 60 # 1 minute
+        duration: 0
+  '9':
+    reason: Bannumgehung
+    onlyAdmins: false
+    lvl:
+      '1':
+        type: NETWORK
+        duration: 0
+  '10':
+    reason: Sicherheitsbann
+    onlyAdmins: false
+    lvl:
+      '1':
+        type: NETWORK
+        duration: 0
+  '11':
+    reason: VPN
+    onlyAdmins: false
+    lvl:
+      '1':
+        type: NETWORK
+        duration: 0
+  '99':
+    reason: EXTREM
+    onlyAdmins: true
+    lvl:
+      '1':
+        type: NETWORK
+        duration: 0

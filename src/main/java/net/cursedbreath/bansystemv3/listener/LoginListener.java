@@ -54,6 +54,22 @@ public class LoginListener {
 
                     long remainingTime = until - (System.currentTimeMillis());
 
+                    if(until == 0) {
+
+                        String creatorname = BanSystem_Velocity.getPlayerManager().getName(UUID.fromString(baninformation.getString("creator")));
+
+                        String reason = baninformation.getString("reason");
+
+                        Component targetBanMessage = MiniMessage.miniMessage().deserialize(String.join("\n", BanSystem_Velocity.getDataManager().getScreen("network")),
+                                Placeholder.parsed("creator", creatorname),
+                                Placeholder.parsed("reason", reason),
+                                Placeholder.parsed("until", "PERMANENT"),
+                                Placeholder.parsed("remtime", "-1"));
+
+                        event.getPlayer().disconnect(targetBanMessage);
+
+                    }
+
                     if(until >= (System.currentTimeMillis())) {
 
                         if(BanSystem_Velocity.getBanManager().isMuted(player.getUniqueId())) {
