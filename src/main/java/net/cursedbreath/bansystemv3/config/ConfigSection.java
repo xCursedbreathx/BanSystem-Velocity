@@ -1,5 +1,5 @@
 /*
- * This file is part of Maintenance - https://github.com/kennytv/Maintenance
+ * This file is part of BanSystem-Velocity - https://github.com/kennytv/Maintenance
  * Copyright (C) 2018-2022 kennytv (https://github.com/kennytv)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.cursedbreath.bansystemreworked.config;
+package net.cursedbreath.bansystemv3.config;
 
 import org.jetbrains.annotations.Nullable;
 

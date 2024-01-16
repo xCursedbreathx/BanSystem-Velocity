@@ -1,19 +1,28 @@
-package net.cursedbreath.bansystemv3.utils;
+package net.cursedbreath.bansystemv3.interfaces;
 
+import com.velocitypowered.api.command.CommandSource;
+
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 public interface BanManager {
 
-    void banPlayer(UUID player, UUID creator, String reason, long duration);
+    void punishPlayer(UUID player, UUID creator, String reason, String type, long duration);
 
-    void banPlayer(String name, UUID creator, String reason, long duration);
+    boolean isBanned(UUID playerUniqueID);
 
-    void mutePlayer(UUID player, UUID creator, String reason, long duration);
+    boolean isMuted(UUID playerUniqueID);
 
-    void mutePlayer(String name, UUID creator, String reason, long duration);
+    ResultSet getPunishmentInformations(UUID player);
 
-    void kickPlayer(UUID player, UUID creator, String reason);
+    ResultSet getPunishmentHistory(UUID player);
 
-    void kickPlayer(String name, UUID creator, String reason);
+    ResultSet getAllBannedNames();
+
+    int repeatedPunishCounter(UUID player, String reason);
+
+    void removePunishment(UUID player);
 
 }

@@ -9,49 +9,44 @@
 
 CREATE TABLE IF NOT EXISTS `active_punishment_infos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `duration` bigint(255) NOT NULL DEFAULT 0,
   `banned` varchar(50) NOT NULL DEFAULT '0',
   `creator` varchar(50) NOT NULL DEFAULT '0',
+  `punishment` varchar(50) NOT NULL DEFAULT '0',
   `reason` varchar(512) NOT NULL DEFAULT '0',
-  `type` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `chat_log` (
+CREATE TABLE IF NOT EXISTS `command_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(50) NOT NULL DEFAULT '0',
-  `username` varchar(20) NOT NULL DEFAULT '0',
-  `date` varchar(13) NOT NULL DEFAULT '0',
-  `time` varchar(13) NOT NULL DEFAULT '0',
-  `message` varchar(512) NOT NULL DEFAULT '0',
+  `uuid` varchar(50) NOT NULL,
+  `command` varchar(50) NOT NULL,
+  `arguments` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `player_data` (
   `uuid` varchar(50) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `first_login` varchar(13) NOT NULL,
-  `last_login` varchar(13) NOT NULL,
+  `username` varchar(30) NOT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `player_name_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(50) NOT NULL DEFAULT '0',
-  `username` varchar(20) NOT NULL DEFAULT '0',
-  `date` varchar(13) NOT NULL DEFAULT '0',
-  `time` varchar(13) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `punishment_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `duration` bigint(20) NOT NULL DEFAULT 0,
+  `duration` bigint(255) NOT NULL DEFAULT 0,
   `banned` varchar(50) NOT NULL DEFAULT '0',
   `creator` varchar(50) NOT NULL DEFAULT '0',
-  `action` varchar(50) NOT NULL DEFAULT '0',
-  `note` varchar(512) NOT NULL DEFAULT '0',
+  `punishment` varchar(50) NOT NULL DEFAULT '0',
+  `reason` varchar(512) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER `addPunishLog` AFTER INSERT ON `active_punishment_infos` FOR EACH ROW INSERT INTO punishment_log (duration, banned, creator, punishment, reason)
+VALUES (NEW.duration, NEW.banned, NEW.creator, NEW.punishment, NEW.reason)//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

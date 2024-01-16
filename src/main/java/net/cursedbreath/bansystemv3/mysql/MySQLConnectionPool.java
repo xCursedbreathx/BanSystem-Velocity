@@ -1,4 +1,4 @@
-package net.cursedbreath.bansystemreworked.mysql;
+package net.cursedbreath.bansystemv3.mysql;
 
 import org.slf4j.Logger;
 
